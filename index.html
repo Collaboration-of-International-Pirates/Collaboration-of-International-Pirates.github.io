@@ -1,48 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Test Page</title>
+    <title>International Pirate Collaboration</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #1d3557;
+            color: #f1faee;
+            margin: 0;
+            padding: 0;
+            text-align: center;
         }
+
         header {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
+            background-color: #457b9d;
+            padding: 1em;
         }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #a8dadc;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #1d3557;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            background-color: #f1faee;
+        }
+
         section {
-            margin-top: 20px;
+            padding: 2em;
         }
+
         footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
+            background-color: #457b9d;
+            padding: 1em;
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
-        <h1>HTML Test Page</h1>
+        <h1>International Pirate Collaboration</h1>
     </header>
 
-    <section>
-        <h2>Welcome to my HTML test page!</h2>
-        <p>This is a simple page to test HTML markup and styling.</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About the Pirate Party</h2>
+        <p>Welcome aboard, matey! The International Pirate Collaboration is a gathering of pirates from all corners of the
+            world. We come together to celebrate the spirit of adventure, camaraderie, and of course, a good old
+            swashbuckling time!</p>
+    </section>
+
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <p>Check out our upcoming events and join us for a rip-roaring time on the high seas!</p>
         <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
+            <li>Treasure Hunt Extravaganza</li>
+            <li>Pirate Costume Contest</li>
+            <li>Shanty Sing-Along Night</li>
         </ul>
     </section>
 
-    <footer>
-        <p>&copy; 2024 HTML Test Page</p>
-    </footer>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>View the highlights from our previous gatherings in the gallery below:</p>
+        <!-- Insert your gallery images or videos here -->
+    </section>
 
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to join the crew? Drop us a message:</p>
+        <!-- Insert your contact form or contact information here -->
+    </section>
+
+    <footer>
+        <p>© 2024 International Pirate Collaboration. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
