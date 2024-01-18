@@ -22,15 +22,17 @@ const styleDate = [
     { "title": "International Pronouns Day", "DayOfWeek": 3, "month": 9, "week": 3, "class": "international-pronouns" },
     { "title": "International Day of Pink", "DayOfWeek": 3, "month": 3, "week": 2, "class": "international-day-of-pink" },
     { "title": "Asexual Awareness Week", "month": 9, "week": -1, "class": "asexual-awareness-week" },
-    // PP
+    // Praite days
     { "title": "World Day Against Cyber Censorship", "day": 12, "month": 2, "class": "world-day-against-cyber-censorship" },
     { "title": "Chelsea Manning", "day": 17, "month": 11, "class": "chelsea-manning" },
     { "title": "Aaron swartz", "day": 8, "month": 11, "class": "aaron-swartz" },
     { "title": "Edward Snowden", "day": 21, "month": 5, "class": "edward-snowden" },
     { "title": "Julian Assange", "day": 3, "month": 6, "class": "julian-assange" },
-    { "title": "420", "day": 20, "month": 3, "class": "four-twenty" },
+    { "title": "Public Domain Day", "day": 1, "month": 0, "class": "public-domain-day" },
     // other
-    { "title": "International women's day", "day": 8, "month": 2, "class": "woman-day" }
+    { "title": "International women's day", "day": 8, "month": 2, "class": "woman-day" },
+    { "title": "420", "day": 20, "month": 3, "class": "four-twenty" },
+
 ]
 
 const today = new Date();
@@ -38,30 +40,22 @@ const day = today.getDate();
 const month = today.getMonth();
 const dayOfWeek = today.getDay();
 const firstDayOfMonth = new Date(today.getFullYear(), month, 1);
-const firstDayOfWeek = firstDayOfMonth.getDay();
 const lastDayOfMonth = new Date(today.getFullYear(), month + 1, 0);
-const lastDayOfWeek = lastDayOfMonth.getDay();
 
-
-for (let i = 0; i < styledate.length; i++) {
-    // day of week
-    if (styledate[i].DayOfWeek) {
-        if (styledate[i].DayOfWeek === dayOfWeek && styledate[i].month === month) {
-            // set body class
-            document.body.classList.add(styledate[i].class);
+for (let i = 0; i < styleDate.length; i++) {
+    if (styleDate[i].dayOfWeek !== undefined) {
+        // Check if it's the correct day of the week in the correct week
+        const targetDate = new Date(today.getFullYear(), month, 1 + styleDate[i].dayOfWeek - firstDayOfMonth.getDay() + (styleDate[i].week - 1) * 7);
+        if (targetDate.getMonth() === month && targetDate.getDate() === day) {
+            document.body.classList.add(styleDate[i].class);
+        }
+    } else if (styleDate[i].day && styleDate[i].month) {
+        if (styleDate[i].day === day && styleDate[i].month === month) {
+            document.body.classList.add(styleDate[i].class);
+        }
+    } else if (styleDate[i].month) {
+        if (styleDate[i].month === month) {
+            document.body.classList.add(styleDate[i].class);
         }
     }
-    // if it has day then it will have month
-    else if (styledate[i].day && styledate[i].month) {
-        if (styledate[i].day === day && styledate[i].month === month) {
-            document.body.classList.add(styledate[i].class);
-        }
-    }
-    // if it only has month
-    else if (styledate[i].month) {
-        if (styledate[i].month === month) {
-            document.body.classList.add(styledate[i].class);
-        }
-    }
-
 }
